@@ -1,0 +1,24 @@
+<h2>Register a Driver </h2>
+<%= form_for(:driver, url: {action: 'save'}, html: {multipart: true}) do |f| %>
+<div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :comment %>
+  </div>
+<div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_area :address %>
+  </div>
+  <div class="field">
+    <%= f.label :"Upload your picture:" %><br> 
+    <%= f.file_field("uploaded_driver") %>
+</div>
+<div class="field">
+    <%= f.label :number %><br>
+    <%= f.phone_field :number %>
+  </div>
+<div class="field">
+    <%= f.label :price %><br>
+    <%= f.text_field :price %>
+  </div>
+<%= submit_tag("Upload file") %>
+<% end %>

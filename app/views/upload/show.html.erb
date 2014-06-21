@@ -1,0 +1,14 @@
+<h1>Registration successful</h1>
+  <table class= "register">
+      <tr class="list_show">
+        <td><img class="list_image" src="<%= url_for(:action => 'driver', :id =>@driver.id) %>"/></td>
+        <td class="list_description">
+          <dl>
+            <dt><%= @driver.comment %></dt>
+            <dd><%= @driver.number %></dd>
+            <dd><%= @driver.price %></dd>
+            <dd><%=truncate(strip_tags(@driver.address), length:80) %></dd>
+          </dl>
+        </td>
+		</tr>
+</table>

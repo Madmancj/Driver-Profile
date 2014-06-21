@@ -1,0 +1,25 @@
+<h1>Listing drivers</h1>
+  <table>
+    <% @drivers.each do |driver| %>
+      <tr class="<%= cycle('list_line_odd','list_line_even') %>">
+        <td><img class: "list_img" src="<%= url_for(controller: 'upload', :action => 'driver', :id =>driver.id) %>" width="100" height="120"/></td>
+        <td class="list_description">
+          <dl>
+            <dt><%= driver.comment %></dt>
+            <dd><%=truncate(strip_tags(driver.address), length:80) %></dd>
+          </dl>
+        </td>
+        <td class="list_actions">
+          <%= link_to 'Show', driver %><br/>
+          <%= link_to 'Edit',edit_driver_path(driver) %><br/>
+          <%= link_to 'Destroy', driver, method:
+            :delete,
+            data: { confirm: 'Are you sure?'} %>
+</td>
+</tr>
+<% end %>
+</table>
+
+<br>
+
+<%= link_to 'New Driver', new_driver_path %>
